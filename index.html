@@ -1,1 +1,33 @@
-<button>Change color</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>Change color</button>
+    <script>
+        const btn = document.querySelector('button');
+
+        function random(number) {
+        return Math.floor(Math.random() * (number+1));
+        } 
+
+        btn.addEventListener('click', () => {
+        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+        });
+
+        // we store a reference/constant to <button> from html
+            // in btn using document.querySelector()
+            //we define a function that returns a random number
+            //the number is used in the third part
+            //the third part we define and register the event listener
+            // addEventListener()requires two arguments:
+            // the name of the event (click) and a function to handle the event
+            //In our case the function generates a random RGB color and 
+            //sets the page <body> background-color equal to that color.
+
+    </script>
+</body>
+</html>
