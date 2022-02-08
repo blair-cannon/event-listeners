@@ -7,16 +7,16 @@
 <body>
     <button>Change color</button>
     <script>
-        const btn = document.querySelector('button');
+       // const btn = document.querySelector('button');
 
-        function random(number) {
-        return Math.floor(Math.random() * (number+1));
-        } 
+       // function random(number) {
+        //return Math.floor(Math.random() * (number+1));
+        //} 
 
-        btn.addEventListener('click', () => {
-        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-        document.body.style.backgroundColor = rndCol;
-        });
+        //btn.addEventListener('click', () => {
+        //const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        //document.body.style.backgroundColor = rndCol;
+        //}); 
 
         // we store a reference/constant to <button> from html
             // in btn using document.querySelector()
@@ -27,6 +27,24 @@
             // the name of the event (click) and a function to handle the event
             //In our case the function generates a random RGB color and 
             //sets the page <body> background-color equal to that color.
+
+                const btn = document.querySelector('button');
+
+                function random(number) {
+                return Math.floor(Math.random() * (number+1));
+                }
+
+                function bgChange(e) {
+                const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+                e.target.style.backgroundColor = rndCol;
+                console.log(e);
+                }
+
+                btn.addEventListener('click', bgChange);
+
+                //this uses an event object (e) and changes the button background color
+                //can't use both at the same time
+
 
     </script>
 </body>
