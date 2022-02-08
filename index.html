@@ -5,7 +5,29 @@
     <title>Document</title>
 </head>
 <body>
-    <button>Change color</button>
+        <button>Change color</button>
+    <br>
+        <input id="textBox" type="text"></input>
+        <div id="output"></div>
+    <br>
+
+        <form>
+            <div>
+            <label for="fname">First name: </label>
+            <input id="fname" type="text">
+            </div>
+            <div>
+            <label for="lname">Last name: </label>
+            <input id="lname" type="text">
+            </div>
+            <div>
+            <input id="submit" type="submit">
+            </div>
+        </form>
+        <p></p>
+      
+
+
     <script>
        // const btn = document.querySelector('button');
 
@@ -44,6 +66,28 @@
 
                 //this uses an event object (e) and changes the button background color
                 //can't use both at the same time
+
+
+                const textBox = document.querySelector("#textBox");
+                const output = document.querySelector("#output");
+                textBox.addEventListener('keydown', event => output.textContent = `You pressed "${event.key}".`);
+                //keydown events like this have a special property (event.key) that can tell you what key was clicked
+
+
+                const form = document.querySelector('form');
+                const fname = document.getElementById('fname');
+                const lname = document.getElementById('lname');
+                const para = document.querySelector('p');
+
+                form.addEventListener('submit', e => {
+                if (fname.value === '' || lname.value === '') {
+                    e.preventDefault();
+                    para.textContent = 'You need to fill in both names!';
+                }
+                });
+                //prevents default behavior of submission if either of the text boxes are left empty
+
+
 
 
     </script>
